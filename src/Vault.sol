@@ -11,7 +11,7 @@ import "openzeppelin-contracts/contracts/access/Ownable2Step.sol";
 error VaultInactive();
 error Unauthorized();
 
-contract Vault is ERC20, ERC4626, Ownable2Step {
+contract Vault is ERC4626, Ownable2Step {
     using SafeTransferLib for ERC20;
     using FixedPointMathLib for uint256;
 
