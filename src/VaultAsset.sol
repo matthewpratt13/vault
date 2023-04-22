@@ -5,13 +5,13 @@ import "solmate/tokens/ERC20.sol";
 import "openzeppelin-contracts/contracts/access/Ownable.sol";
 
 contract VaultAsset is ERC20, Ownable {
-    uint256 public _totalSupply = 1_000_000;
+    constructor(string memory _name, string memory _symbol, uint8 _decimals) ERC20(_name, _symbol, _decimals) {}
 
-    constructor() ERC20("vAsset", "VAST", 18) {
-        _mint(address(0), _totalSupply);
+    function mint(uint256 amount) public onlyOwner {
+        _mint(msg.sender, amount);
     }
 
-    function burn(uint256 value) public onlyOwner {
-        _burn(msg.sender, value);
+    function burn(uint256 amount) public onlyOwner {
+        _burn(msg.sender, amount);
     }
 }

@@ -10,7 +10,7 @@ contract VaultTest is Test {
     Vault vault;
 
     function setUp() public {
-        vast = new VaultAsset();
+        vast = new VaultAsset("vDai", "DAI", 18);
         vault = new Vault(vast, "vDai", "DAI");
     }
 
