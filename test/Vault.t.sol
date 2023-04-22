@@ -10,8 +10,8 @@ contract VaultTest is Test {
     Vault vault;
 
     function setUp() public {
-        vast = new VaultAsset("vDai", "DAI", 18);
-        vault = new Vault(vast, "vDai", "DAI");
+        vast = new VaultAsset("vDai", "DAI", 18); // is ERC-20
+        vault = new Vault(vast, "vAsset", "VAST");
     }
 
     function testFail_PauseAsNotOwner() public {
