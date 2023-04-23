@@ -3,9 +3,7 @@ pragma solidity 0.8.17;
 
 import "forge-std/Script.sol";
 
-contract Vault is Script {
-    function setUp() public {}
-
+contract VaultScript is Script {
     function run() public {
         vm.broadcast();
     }
