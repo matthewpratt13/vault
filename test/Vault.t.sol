@@ -6,12 +6,32 @@ import "../src/Vault.sol";
 import "../src/VaultAsset.sol";
 
 contract VaultTest is Test {
-    VaultAsset public vast;
+    VaultAsset public _asset;
     Vault vault;
 
     function setUp() public {
-        vast = new VaultAsset("vDai", "DAI", 18); // is ERC-20
-        vault = new Vault(vast, "vAsset", "VAST");
+        _asset = new VaultAsset("vDai", "DAI", 18); // is ERC-20
+        vault = new Vault(_asset, "vAsset", "VAST");
+    }
+
+    function testFail_DepositWhenVaultPaused() public {
+        vm.prank(address(0));
+        vault.deposit(1000, address(this));
+    }
+
+    function testFail_MintWhenVaultPaused() public {
+        vm.prank(address(0));
+        vault.mint(1000, address(this));
+    }
+
+    function testFail_WithdrawWhenVaultPaused() public {
+        vm.prank(address(0));
+        vault.withdraw(1000, address(this), msg.sender);
+    }
+
+    function testFail_RedeemWhenVaultPaused() public {
+        vm.prank(address(0));
+        vault.redeem(1000, address(this), msg.sender);
     }
 
     function testFail_PauseAsNotOwner() public {
