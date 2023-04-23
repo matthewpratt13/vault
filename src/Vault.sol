@@ -9,7 +9,6 @@ import "solmate/utils/FixedPointMathLib.sol";
 import "openzeppelin-contracts/contracts/access/Ownable2Step.sol";
 
 error VaultInactive();
-error Unauthorized();
 
 contract Vault is ERC4626, Ownable2Step {
     using SafeTransferLib for ERC20;

@@ -15,13 +15,11 @@ contract VaultTest is Test {
     }
 
     function testFail_PauseAsNotOwner() public {
-        vm.expectRevert(Unauthorized.selector);
         vm.prank(address(0));
         vault.pauseVault();
     }
 
     function testFail_ActivateAsNotOwner() public {
-        vm.expectRevert(Unauthorized.selector);
         vm.prank(address(0));
         vault.activateVault();
     }
