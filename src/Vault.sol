@@ -3,8 +3,8 @@ pragma solidity 0.8.17;
 
 import "solmate/tokens/ERC20.sol";
 import "solmate/mixins/ERC4626.sol";
-import "solmate/utils/SafeTransferLib.sol";
-import "solmate/utils/FixedPointMathLib.sol";
+import {SafeTransferLib} from "solmate/utils/SafeTransferLib.sol";
+import {FixedPointMathLib} from "solmate/utils/FixedPointMathLib.sol";
 
 import "openzeppelin-contracts/contracts/access/Ownable2Step.sol";
 
