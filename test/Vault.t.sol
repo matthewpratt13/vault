@@ -3,7 +3,7 @@ pragma solidity 0.8.17;
 
 import "forge-std/Test.sol";
 import "../src/Vault.sol";
-import {VaultAsset} from "../src/VaultAsset.sol";
+import "../src/VaultAsset.sol";
 
 contract VaultTest is Test {
     VaultAsset public _asset;
